@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Um convite especial feito para a Seninha."
+    >
+
+    <meta
+        name="theme-color"
+        content="#2b1245"
+    >
+
+    <title>
+        Um convite para a Seninha 🍓
+    </title>
+
+    <!-- Fontes utilizadas no projeto -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Arquivo CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================
+         INTRODUÇÃO
+    ====================================== -->
+
+    <section
+        id="intro"
+        aria-label="Introdução do convite"
+    >
+        <div
+            id="strawberry"
+            aria-hidden="true"
+        >
+            🍓
+        </div>
+
+        <h1
+            id="introTitle"
+            aria-live="polite"
+        ></h1>
+    </section>
+
+
+    <!-- =====================================
+         IMAGENS DA NANA E DA HACHI
+    ====================================== -->
+
+    <div
+        id="matchingPictures"
+        class="matching-pictures"
+        aria-hidden="true"
+    >
+        <div
+            class="matching-half matching-nana"
+        >
+            <img
+                src="images/nana/nana-metade.png.jpeg"
+                alt=""
+                draggable="false"
+            >
+        </div>
+
+        <div
+            class="matching-half matching-hachi"
+        >
+            <img
+                src="images/nana/hachi-metade.png.jpeg"
+                alt=""
+                draggable="false"
+            >
+        </div>
+    </div>
+
+
+    <!-- =====================================
+         CARTÃO PRINCIPAL
+    ====================================== -->
+
+    <main
+        id="mainCard"
+        class="card"
+    >
+        <h1>
+            Oi, Seninha! 🍓
+        </h1>
+
+        <p>
+            Eu estava pensando em uma maneira diferente
+            de te fazer um convite.
+        </p>
+
+        <p>
+            Então resolvi criar este pequeno cantinho,
+            inspirado em <strong>NANA</strong>,
+            especialmente para você.
+        </p>
+
+        <p>
+            Seninha, você aceita ir assistir
+            <strong>Homem-Aranha</strong>
+            comigo no sábado?
+        </p>
+
+        <div
+            class="buttons"
+            aria-label="Respostas do convite"
+        >
+            <button
+                id="yes"
+                type="button"
+            >
+                Sim! 🍓
+            </button>
+
+            <button
+                id="no"
+                type="button"
+            >
+                Não
+            </button>
+        </div>
+    </main>
+
+
+    <!-- =====================================
+         GATINHO DANÇANDO
+    ====================================== -->
+
+    <img
+        id="catDance"
+        src="images/cats.gif.gif"
+        alt="Gatinho comemorando e dançando"
+        draggable="false"
+    >
+
+
+    <!-- =====================================
+         TELA DE SUCESSO
+    ====================================== -->
+
+    <section
+        id="successScreen"
+        aria-label="Convite aceito"
+    >
+        <div class="success-content">
+
+            <p class="success-small">
+                Convite aceito
+            </p>
+
+            <h2>
+                Nos vemos no sábado,
+                Seninha!
+            </h2>
+
+            <div
+                class="success-icons"
+                aria-hidden="true"
+            >
+                🍓 ✨ 💜
+            </div>
+
+            <button
+                id="openLetter"
+                type="button"
+                aria-haspopup="dialog"
+                aria-controls="letterScreen"
+            >
+                Abrir cartinha 💌
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- =====================================
+         CARTINHA
+    ====================================== -->
+
+    <section
+        id="letterScreen"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-labelledby="letterTitle"
+    >
+        <article class="letter">
+
+            <button
+                id="closeLetter"
+                type="button"
+                aria-label="Fechar cartinha"
+            >
+                ×
+            </button>
+
+            <span
+                class="letter-strawberry"
+                aria-hidden="true"
+            >
+                🍓
+            </span>
+
+            <h2 id="letterTitle">
+                Para a Seninha,
+            </h2>
+
+            <p>
+                Talvez eu pudesse ter feito esse convite
+                de uma forma simples, apenas mandando
+                uma mensagem.
+            </p>
+
+            <p>
+                Mas achei que seria muito mais legal
+                criar algo diferente, divertido e feito
+                especialmente para você.
+            </p>
+
+            <p>
+                Foi também uma oportunidade para praticar
+                um pouco de programação e transformar uma
+                ideia que estava na minha cabeça em algo
+                que você pudesse realmente ver.
+            </p>
+
+            <p>
+                Cada morango, cada animação e cada detalhe
+                deste site foi colocado aqui com carinho.
+            </p>
+
+            <p>
+                Espero que você tenha gostado da surpresa
+                e que o nosso sábado seja muito divertido.
+            </p>
+
+            <p class="final-phrase">
+                Afinal, algumas pessoas combinam
+                como duas metades de uma mesma imagem.
+                🍓💜
+            </p>
+
+            <p class="signature">
+                Com carinho,<br>
+                Rafael
+            </p>
+
+        </article>
+    </section>
+
+
+    <!-- =====================================
+         MÚSICA
+    ====================================== -->
+
+    <audio
+        id="bgMusic"
+        preload="auto"
+        loop
+    >
+        <source
+            src="assets/musica.mp3.mp3"
+            type="audio/mpeg"
+        >
+
+        Seu navegador não conseguiu carregar a música.
+    </audio>
+
+    <button
+        id="musicControl"
+        class="music-control"
+        type="button"
+        aria-label="Pausar música"
+        aria-pressed="false"
+        title="Pausar ou continuar a música"
+    >
+        🔊
+    </button>
+
+
+    <!-- =====================================
+         AVISO SEM JAVASCRIPT
+    ====================================== -->
+
+    <noscript>
+        <p class="noscript-message">
+            Este convite precisa do JavaScript ativado
+            para mostrar as animações. 🍓
+        </p>
+    </noscript>
+
+
+    <!-- Arquivo JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
