@@ -243,61 +243,33 @@ function createStars(quantity = 45) {
 // ========================================
 
 function moveNoButton() {
-    if (
-        !btnNo ||
-        invitationAccepted
-    ) {
+    if (!btnNo || invitationAccepted) {
         return;
     }
 
-    const margin = 16;
+    const margin = 20;
+    const buttonWidth = btnNo.offsetWidth;
+    const buttonHeight = btnNo.offsetHeight;
 
-    const maxX = Math.max(
-        margin,
-        window.innerWidth -
-        btnNo.offsetWidth -
-        margin
-    );
+    const availableWidth =
+        window.innerWidth - buttonWidth - margin * 2;
 
-    const maxY = Math.max(
-        margin,
-        window.innerHeight -
-        btnNo.offsetHeight -
-        margin
-    );
+    const availableHeight =
+        window.innerHeight - buttonHeight - margin * 2;
 
     const x =
-        margin +
-        Math.random() *
-        Math.max(
-            0,
-            maxX - margin
-        );
+        margin + Math.random() * Math.max(availableWidth, 0);
 
     const y =
-        margin +
-        Math.random() *
-        Math.max(
-            0,
-            maxY - margin
-        );
+        margin + Math.random() * Math.max(availableHeight, 0);
 
-    btnNo.style.position =
-        "fixed";
-
-    btnNo.style.zIndex =
-        "10000";
-
-    btnNo.style.left =
-        `${x}px`;
-
-    btnNo.style.top =
-        `${y}px`;
+    btnNo.style.position = "fixed";
+    btnNo.style.zIndex = "10000";
+    btnNo.style.left = `${x}px`;
+    btnNo.style.top = `${y}px`;
 
     btnNo.textContent =
-        NO_BUTTON_TEXTS[
-            noTextIndex
-        ];
+        NO_BUTTON_TEXTS[noTextIndex];
 
     noTextIndex =
         (noTextIndex + 1) %
@@ -604,11 +576,46 @@ async function toggleMusic() {
 // ========================================
 // ACEITAR CONVITE
 // ========================================
+async function restartCatGif() {
+    const originalPath =
+        catDance.dataset.originalSrc ||
+        catDance.getAttribute("src");
 
-function restartCatGif() {
-    if (!catDance) {
+    if (!originalPath) {
         return;
     }
+
+    catDance.dataset.originalSrc =
+        originalPath.split("?")[0];
+
+    catDance.classList.remove(
+        "is-visible"
+    );
+
+    catDance.style.display = "none";
+
+    const freshGifUrl =
+        `${catDance.dataset.originalSrc}?restart=${Date.now()}`;
+
+    catDance.removeAttribute("src");
+
+    void catDance.offsetWidth;
+
+    catDance.setAttribute(
+        "src",
+        freshGifUrl
+    );
+
+    catDance.onload = () => {
+        catDance.style.display = "";
+
+        requestAnimationFrame(() => {
+            catDance.classList.add(
+                "is-visible"
+            );
+        });
+    };
+
 
     const gifPath =
         catDance.currentSrc ||
@@ -865,12 +872,6 @@ btnNo?.addEventListener(
     "mouseenter",
     moveNoButton
 );
-
-btnNo?.addEventListener(
-    "focus",
-    moveNoButton
-);
-
 btnNo?.addEventListener(
     "touchstart",
     (event) => {
